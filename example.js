@@ -1,5 +1,5 @@
 // Source from one of my projects to help other developers having issues with uploading large files to object storage.
-// It is originally a NestJS project.
+// It is originally a NestJS project, so don't get surprised by the syntax.
 
 const AWS = require("aws-sdk");
 const fs = require('fs');
@@ -26,7 +26,7 @@ const s3 = new AWS.S3({
       let pass = new stream.PassThrough();
     
       let params = {
-        Bucket: "nextgen",
+        Bucket: "YOUR_BUCKET_NAME",
         Key: file.name,
         Body: pass
       };
