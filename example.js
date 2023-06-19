@@ -1,9 +1,10 @@
 // Source from one of my projects to help other developers having issues with uploading large files to object storage.
 // It is originally a NestJS project, so don't get surprised by the syntax.
 
-const AWS = require("aws-sdk");
+const AWS = require("aws-sdk"); // This is v2, we use it so we can access every feature of aws, and not just object storage s3 api.
 const fs = require('fs');
 const stream = require('stream');
+require('aws-sdk/lib/maintenance_mode_message').suppress = true; // This line is for suppressing the maintenance mode message from aws-sdk.
 
 const s3 = new AWS.S3({
   endpoint: `OBJECT_STORAGE_ENDPOINT_URL`, // e.g. https://eu2.contabostorage.com/bucketname
